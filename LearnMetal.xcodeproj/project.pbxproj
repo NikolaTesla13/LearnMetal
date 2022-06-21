@@ -12,6 +12,7 @@
 		394EB171286207CE003949EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394EB170286207CE003949EF /* Assets.xcassets */; };
 		394EB174286207CE003949EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394EB172286207CE003949EF /* Main.storyboard */; };
 		394EB176286207CE003949EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 394EB175286207CE003949EF /* main.m */; };
+		394EB17F286219C2003949EF /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 394EB17E286219C2003949EF /* Shader.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		394EB173286207CE003949EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		394EB175286207CE003949EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		394EB177286207CE003949EF /* LearnMetal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LearnMetal.entitlements; sourceTree = "<group>"; };
+		394EB17D28621948003949EF /* ShaderTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShaderTypes.h; sourceTree = "<group>"; };
+		394EB17E286219C2003949EF /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			children = (
 				394EB16A286207CD003949EF /* Renderer.h */,
 				394EB16B286207CD003949EF /* Renderer.m */,
+				394EB17D28621948003949EF /* ShaderTypes.h */,
+				394EB17E286219C2003949EF /* Shader.metal */,
 				394EB16D286207CD003949EF /* ViewController.h */,
 				394EB16E286207CD003949EF /* ViewController.m */,
 				394EB175286207CE003949EF /* main.m */,
@@ -137,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				394EB17F286219C2003949EF /* Shader.metal in Sources */,
 				394EB16F286207CD003949EF /* ViewController.m in Sources */,
 				394EB176286207CE003949EF /* main.m in Sources */,
 				394EB16C286207CD003949EF /* Renderer.m in Sources */,

@@ -6,7 +6,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#include <simd/simd.h>
+#include "ShaderTypes.h"
 
 @import MetalKit;
 
