@@ -10,6 +10,12 @@
 
 using namespace metal;
 
+float pow(float base, int32_t exp)
+{
+    for(int i=0; i<exp; i++) base *= base;
+    return base;
+}
+
 struct VertexOut
 {
     float4 color;

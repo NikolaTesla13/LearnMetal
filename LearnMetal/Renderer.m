@@ -13,6 +13,7 @@
     id<MTLCommandQueue> _commandQueue;
     id<MTLRenderPipelineState> _pipelineState;
     id<MTLBuffer> _vertexBuffer;
+    id<MTLBuffer> _indexBuffer;
     
     vector_uint2 _viewportSize;
 }
@@ -29,7 +30,7 @@
         _commandQueue = [_device newCommandQueue];
         
         [self buildRenderPipelineWith:mtkView];
-        [self buildVertexBuffer];
+        [self buildBuffers];
     }
     
     return self;
@@ -62,17 +63,25 @@
 }
 
 // create the buffers needed to draw
-- (void)buildVertexBuffer
+- (void)buildBuffers
 {
-    const vector_float4 color = {0, 0, 1, 1};
+    const vector_float4 color = {1, 1, 0, 1};
     const struct Vertex vertices[] =
     {
-        {color, {-1, -1}},
-        {color, {0, 1}},
-        {color, {1, -1}},
+        {color, {0.5, 0.5}},
+        {color, {0.5, -0.5}},
+        {color, {-0.5, -0.5}},
+        {color, {-0.5, 0.5}},
+    };
+    const int32_t indices[] =
+    {
+        0, 1, 3,
+        1, 2, 3,
     };
         
     _vertexBuffer = [_device newBufferWithBytes:(void*)vertices length:sizeof(struct Vertex)*COUNT(vertices) options:MTLResourceOptionCPUCacheModeDefault];
+    
+    _indexBuffer = [_device newBufferWithBytes:(void*)indices length:sizeof(int32_t)*COUNT(indices) options:MTLResourceOptionCPUCacheModeDefault];
 }
 
 // main loop
@@ -91,8 +100,8 @@
             _viewportSize.x, _viewportSize.y, 0.0, 1.0 }];
         [_renderEncoder setRenderPipelineState:_pipelineState];
         [_renderEncoder setVertexBuffer:_vertexBuffer offset:0 atIndex:0];
-        
-        [_renderEncoder drawPrimitives:MTLPrimitiveTypeTriangle vertexStart:0 vertexCount:3];
+
+        [_renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle indexCount:6 indexType:MTLIndexTypeUInt32 indexBuffer:_indexBuffer indexBufferOffset:0];
         
         [_renderEncoder endEncoding];
 
