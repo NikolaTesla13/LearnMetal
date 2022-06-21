@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		394EB16C286207CD003949EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 394EB16B286207CD003949EF /* AppDelegate.m */; };
+		394EB16C286207CD003949EF /* Renderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 394EB16B286207CD003949EF /* Renderer.m */; };
 		394EB16F286207CD003949EF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394EB16E286207CD003949EF /* ViewController.m */; };
 		394EB171286207CE003949EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 394EB170286207CE003949EF /* Assets.xcassets */; };
 		394EB174286207CE003949EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 394EB172286207CE003949EF /* Main.storyboard */; };
@@ -16,8 +16,8 @@
 
 /* Begin PBXFileReference section */
 		394EB167286207CD003949EF /* LearnMetal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearnMetal.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		394EB16A286207CD003949EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		394EB16B286207CD003949EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		394EB16A286207CD003949EF /* Renderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Renderer.h; sourceTree = "<group>"; };
+		394EB16B286207CD003949EF /* Renderer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Renderer.m; sourceTree = "<group>"; };
 		394EB16D286207CD003949EF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		394EB16E286207CD003949EF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		394EB170286207CE003949EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,14 +56,14 @@
 		394EB169286207CD003949EF /* LearnMetal */ = {
 			isa = PBXGroup;
 			children = (
-				394EB16A286207CD003949EF /* AppDelegate.h */,
-				394EB16B286207CD003949EF /* AppDelegate.m */,
+				394EB16A286207CD003949EF /* Renderer.h */,
+				394EB16B286207CD003949EF /* Renderer.m */,
 				394EB16D286207CD003949EF /* ViewController.h */,
 				394EB16E286207CD003949EF /* ViewController.m */,
-				394EB170286207CE003949EF /* Assets.xcassets */,
-				394EB172286207CE003949EF /* Main.storyboard */,
 				394EB175286207CE003949EF /* main.m */,
+				394EB172286207CE003949EF /* Main.storyboard */,
 				394EB177286207CE003949EF /* LearnMetal.entitlements */,
+				394EB170286207CE003949EF /* Assets.xcassets */,
 			);
 			path = LearnMetal;
 			sourceTree = "<group>";
@@ -139,7 +139,7 @@
 			files = (
 				394EB16F286207CD003949EF /* ViewController.m in Sources */,
 				394EB176286207CE003949EF /* main.m in Sources */,
-				394EB16C286207CD003949EF /* AppDelegate.m in Sources */,
+				394EB16C286207CD003949EF /* Renderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

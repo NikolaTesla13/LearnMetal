@@ -6,6 +6,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#include "Renderer.h"
+
+@import MetalKit;
 
 @interface ViewController : NSViewController
 
