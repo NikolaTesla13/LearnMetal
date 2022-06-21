@@ -16,6 +16,7 @@
     id<MTLBuffer> _indexBuffer;
     
     vector_uint2 _viewportSize;
+    float n, delta;
 }
 
 // initialize the renderer
@@ -31,6 +32,9 @@
         
         [self buildRenderPipelineWith:mtkView];
         [self buildBuffers];
+        
+        n = 0.0f;
+        delta = 0.02f;
     }
     
     return self;
@@ -87,10 +91,25 @@
 // main loop
 - (void)drawInMTKView:(nonnull MTKView *)view
 {
+    // update the buffer
+    n += delta;
+    if(n > 1.0 || n < 0.0f) delta *= -1;
+    const vector_float4 color = {1, n, 0, 1};
+    const struct Vertex vertices[] =
+    {
+        {color, {0.5, 0.5}},
+        {color, {0.5, -0.5}},
+        {color, {-0.5, -0.5}},
+        {color, {-0.5, 0.5}},
+    };
+    memcpy(_vertexBuffer.contents, vertices, sizeof(struct Vertex)*COUNT(vertices));
+    
+    // get the command buffer
     id<MTLCommandBuffer> _commandBuffer = [_commandQueue commandBuffer];
     MTLRenderPassDescriptor* _renderPassDescriptor = view.currentRenderPassDescriptor;
     _renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0, 0, 0, 1);
     
+    // render
     if(_renderPassDescriptor != nil)
     {
         id<MTLRenderCommandEncoder> _renderEncoder =
@@ -100,7 +119,7 @@
             _viewportSize.x, _viewportSize.y, 0.0, 1.0 }];
         [_renderEncoder setRenderPipelineState:_pipelineState];
         [_renderEncoder setVertexBuffer:_vertexBuffer offset:0 atIndex:0];
-
+        
         [_renderEncoder drawIndexedPrimitives:MTLPrimitiveTypeTriangle indexCount:6 indexType:MTLIndexTypeUInt32 indexBuffer:_indexBuffer indexBufferOffset:0];
         
         [_renderEncoder endEncoding];
